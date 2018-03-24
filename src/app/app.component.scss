@@ -1,0 +1,29 @@
+.column {
+    &.column-went-well {
+        background-color: rgb(random($limit: 155),random($limit: 155),random($limit: 155));
+    }
+    &.column-to-improve {
+        background-color: rgb(random($limit: 155),random($limit: 155),random($limit: 155));
+    }
+    &.column-action-items {
+        background-color: rgb(random($limit: 155),random($limit: 155),random($limit: 155));
+    }
+    display: inline-block;
+    width: 30%;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 0 1rem;
+    padding-bottom: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    border: 2px solid black;
+    .item {
+        color: black;
+        border-radius: 10px;
+        background: beige;
+        border: 2px solid;
+        margin: 10px 0;
+        padding: 7px 0;
+    }
+}
