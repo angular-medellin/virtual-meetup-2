@@ -20,21 +20,28 @@ export class AppComponent {
   }
 
   spreadItems = (items: Item[]) => {
-    this.items = items.reduce((matrix, item) => {
-      if (!matrix[item.column]) {
-        matrix[item.column] = [];
-      }
-      matrix[item.column].push(item);
-      return matrix;
-    }, [] as Item[][]);
+    this.items = items.reduce(
+      (matrix, item) => {
+        if (!matrix[item.column]) {
+          matrix[item.column] = [];
+        }
+        matrix[item.column].push(item);
+        return matrix;
+      },
+      [] as Item[][],
+    );
     console.log(this.items);
   }
 
-  pushItem( {target}: KeyboardEvent, column: Columns) {
-    const { value: text } = target as HTMLInputElement;
-    this.db.list<Item>('items').push({
-      text,
-      column,
-    });
+  pushItem({ target }: KeyboardEvent, column: Columns) {
+    const input = target as HTMLInputElement;
+    const { value: text } = input;
+    if (text) {
+      input.value = '';
+      this.db.list<Item>('items').push({
+        text,
+        column,
+      });
+    }
   }
 }
