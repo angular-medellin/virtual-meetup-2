@@ -30,7 +30,6 @@ export class AppComponent {
       },
       [] as Item[][],
     );
-    console.log(this.items);
   }
 
   pushItem({ target }: KeyboardEvent, column: Columns) {
